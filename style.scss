@@ -257,8 +257,19 @@ a {
   justify-content: space-evenly;
   width: 100%;
   margin-top: 65px;
+
   img {
     width: 35%;
+    position: relative;
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0px;
+      right: -5px;
+      background-color: lightskyblue;
+    }
   }
   .sideContentOfModalOne {
     width: 40%;
@@ -337,7 +348,7 @@ a {
       text-decoration: none;
       transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
       &:hover {
-        background-color: #000;
+        background-color: lightskyblue;
         color: #000;
       }
     }

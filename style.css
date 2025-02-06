@@ -238,6 +238,16 @@ a {
 }
 .modalOneDiv img {
   width: 35%;
+  position: relative;
+}
+.modalOneDiv img::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  right: -5px;
+  background-color: lightskyblue;
 }
 .modalOneDiv .sideContentOfModalOne {
   width: 40%;
@@ -322,7 +332,7 @@ a {
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 .modalTwoDiv .contentpartMT .contactmTD:hover {
-  background-color: #000;
+  background-color: lightskyblue;
   color: #000;
 }
 .modalTwoDiv img {
