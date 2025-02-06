@@ -89,7 +89,7 @@ a {
   transition: color 0.3s ease-in-out;
 }
 .nameNav .navBar ul li a:hover {
-  color: gold;
+  color: lightskyblue;
 }
 
 @media screen and (max-width: 690px) {
@@ -100,7 +100,7 @@ a {
     position: absolute;
     display: block;
     left: 15px;
-    top: 55px;
+    top: 102px;
     font-size: 1.5rem;
     padding: 2px 3px;
     transition: border 0.3s ease-in-out;
@@ -360,9 +360,15 @@ a {
   flex-direction: column;
   width: 100%;
   height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.7098039216);
+  transition: transform 0.2s ease-in-out;
+  padding: 2px;
+  cursor: pointer;
+}
+.newProdustsSection .newProductBox:hover {
+  transform: translateY(-2%);
 }
 .newProdustsSection .newProductBox img {
-  border: 1px solid rgba(0, 0, 0, 0.7098039216);
   border-radius: 2px;
   -o-object-fit: contain;
      object-fit: contain;
@@ -372,6 +378,7 @@ a {
   font-optical-sizing: auto;
   font-style: normal;
   font-size: 1.3rem;
+  text-align: center;
 }
 
 @media screen and (max-width: 883px) {
@@ -393,7 +400,7 @@ a {
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 11;
+  z-index: 1111;
 }
 
 .product-preview .preview {
@@ -405,6 +412,15 @@ a {
   margin: 3px;
   width: 100%;
 }
+.product-preview .preview .previewSubBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.product-preview .preview .previewSubBox .desPrdPrev .aboutPrdTag {
+  font-size: 2rem;
+}
 
 .product-preview .preview.active {
   display: flex;
@@ -413,7 +429,7 @@ a {
   gap: 5px;
 }
 
-.product-preview .preview .desPrdPrev {
+.product-preview .preview .previewSubBox .desPrdPrev {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -421,11 +437,12 @@ a {
   flex-direction: column;
   width: 60%;
 }
-.product-preview .preview .desPrdPrev p {
+.product-preview .preview .previewSubBox .desPrdPrev p {
   font-size: 1rem;
+  text-align: justify;
 }
 
-.product-preview .preview .proNameStar {
+.product-preview .preview .previewSubBox .proNameStar {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -433,7 +450,7 @@ a {
   flex-direction: column;
 }
 
-.product-preview .preview img {
+.product-preview .preview .previewSubBox img {
   width: 20rem;
 }
 
@@ -466,14 +483,15 @@ a {
 }
 
 .product-preview .preview .stars span {
-  color: #999;
+  color: #000;
 }
 
 .product-preview .preview p {
   line-height: 1.5;
   padding: 1rem 0;
   font-size: 1.6rem;
-  color: #777;
+  color: #000;
+  font-family: Poppins, sans-serif;
 }
 
 .product-preview .preview .price {
@@ -491,44 +509,77 @@ a {
 
 .product-preview .preview .buttons a {
   flex: 1 1 16rem;
-  padding: 0.3rem;
+  padding: 0.3rem 1rem;
   font-size: 1rem;
   color: #444;
-  border: 0.1rem solid #444;
-}
-
-.product-preview .preview .buttons a.cart {
-  background: #444;
-  color: #fff;
-}
-
-.product-preview .preview .buttons a.cart:hover {
-  background: #111;
+  border: 0.1rem solid;
+  text-decoration: none;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .product-preview .preview .buttons a.buy:hover {
-  background: #444;
+  background: #25d366;
   color: #fff;
 }
 
 /* Media Query */
 @media screen and (max-width: 795px) {
-  .product-preview {
-    overflow: hidden;
+  .product-preview .preview {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .product-preview .preview .fa-x {
+    top: 1px;
+  }
+  .product-preview .preview .previewSubBox {
+    position: relative;
+    flex-direction: column;
+    height: 90vh;
     overflow-y: scroll;
     scrollbar-gutter: stable both-edges;
   }
-  .product-preview .preview {
-    flex-direction: column;
+  .product-preview .preview .previewSubBox img {
+    margin-top: 555px;
   }
-  .product-preview .preview img {
+  .product-preview .preview .previewSubBox .desPrdPrev {
+    width: 100%;
+    padding: 2px;
+    flex-direction: column-reverse;
+  }
+  .product-preview .preview .previewSubBox .desPrdPrev .aboutPrdTag {
+    font-size: 1.3rem;
+    color: #000;
+  }
+  .product-preview .preview .previewSubBox .buy {
+    position: fixed;
+    bottom: -21px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    background-color: #25d366;
+    color: #fff;
+    border: none;
+    font-size: 1.3rem;
+  }
+  .product-preview .preview .previewSubBox img {
     height: inherit;
   }
 }
 /* Media Query */
-@media screen and (max-width: 768px) {
-  .product-preview .preview img {
-    height: 15rem;
+@media screen and (max-width: 425px) {
+  .product-preview {
+    height: 100%;
+    overflow: hidden;
+  }
+  .product-preview .preview .previewSubBox img {
+    margin-top: 555px;
+    width: 10rem;
+  }
+}
+@media screen and (max-width: 317px) {
+  .product-preview .preview .previewSubBox img {
+    margin-top: 755px;
+    width: 10rem;
   }
 }
 /* What People Says About us */

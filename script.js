@@ -65,6 +65,7 @@ document
         let target = preview.getAttribute("data-target");
         if (name == target) {
           preview.classList.add("active");
+          document.body.classList.add("hide-scrollbar");
         }
       });
     };
@@ -75,5 +76,6 @@ previewBox.forEach((close) => {
   close.querySelector(".fa-x").onclick = () => {
     close.classList.remove("active");
     productPreview.style.display = "none";
+    document.body.classList.remove("hide-scrollbar");
   };
 });

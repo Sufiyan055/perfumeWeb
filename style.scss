@@ -98,7 +98,7 @@ a {
           text-decoration: none;
           transition: color 0.3s ease-in-out;
           &:hover {
-            color: gold;
+            color: lightskyblue;
           }
         }
       }
@@ -113,7 +113,7 @@ a {
       position: absolute;
       display: block;
       left: 15px;
-      top: 55px;
+      top: 102px;
       font-size: 1.5rem;
       padding: 2px 3px;
       transition: border 0.3s ease-in-out;
@@ -378,8 +378,14 @@ a {
     flex-direction: column;
     width: 100%;
     height: 100%;
+    border: 1px solid #000000b5;
+    transition: transform 0.2s ease-in-out;
+    padding: 2px;
+    cursor: pointer;
+    &:hover {
+      transform: translateY(-2%);
+    }
     img {
-      border: 1px solid #000000b5;
       border-radius: 2px;
       object-fit: contain;
     }
@@ -388,6 +394,7 @@ a {
       font-optical-sizing: auto;
       font-style: normal;
       font-size: 1.3rem;
+      text-align: center;
     }
   }
 }
@@ -414,7 +421,7 @@ a {
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 11;
+  z-index: 1111;
 }
 .product-preview {
   .preview {
@@ -425,27 +432,36 @@ a {
     position: relative;
     margin: 3px;
     width: 100%;
+    .previewSubBox {
+      @include flexcontent(5px);
+      .desPrdPrev {
+        .aboutPrdTag {
+          font-size: 2rem;
+        }
+      }
+    }
   }
 }
 
 .product-preview .preview.active {
   @include flexcontent(5px);
 }
-.product-preview .preview .desPrdPrev {
+.product-preview .preview .previewSubBox .desPrdPrev {
   @include flexcontent(5px);
   flex-direction: column;
   width: 60%;
   p {
     font-size: 1rem;
+    text-align: justify;
   }
 }
 
-.product-preview .preview .proNameStar {
+.product-preview .preview .previewSubBox .proNameStar {
   @include flexcontent(5px);
   flex-direction: column;
 }
 
-.product-preview .preview img {
+.product-preview .preview .previewSubBox img {
   width: 20rem;
 }
 
@@ -473,13 +489,14 @@ a {
   color: #27ae60;
 }
 .product-preview .preview .stars span {
-  color: #999;
+  color: #000;
 }
 .product-preview .preview p {
   line-height: 1.5;
   padding: 1rem 0;
   font-size: 1.6rem;
-  color: #777;
+  color: #000;
+  font-family: Poppins, sans-serif;
 }
 .product-preview .preview .price {
   padding: 1rem 0;
@@ -494,41 +511,96 @@ a {
 }
 .product-preview .preview .buttons a {
   flex: 1 1 16rem;
-  padding: 0.3rem;
+  padding: 0.3rem 1rem;
   font-size: 1rem;
   color: #444;
-  border: 0.1rem solid #444;
+  border: 0.1rem solid;
+  text-decoration: none;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
-.product-preview .preview .buttons a.cart {
-  background: #444;
-  color: #fff;
-}
-.product-preview .preview .buttons a.cart:hover {
-  background: #111;
-}
+
 .product-preview .preview .buttons a.buy:hover {
-  background: #444;
+  background: #25d366;
   color: #fff;
 }
 
 /* Media Query */
+
 @media screen and (max-width: 795px) {
   .product-preview {
-    overflow: hidden;
-    overflow-y: scroll;
-    scrollbar-gutter: stable both-edges;
     .preview {
       flex-direction: column;
+      .fa-x {
+        top: 1px;
+      }
+      min-height: 100vh;
+      .previewSubBox {
+        position: relative;
+        flex-direction: column;
+        height: 90vh;
+        overflow-y: scroll;
+        scrollbar-gutter: stable both-edges;
+        img {
+          margin-top: 555px;
+        }
+        .desPrdPrev {
+          width: 100%;
+          padding: 2px;
+          flex-direction: column-reverse;
+          .aboutPrdTag {
+            font-size: 1.3rem;
+            color: #000;
+          }
+        }
+        .buy {
+          position: fixed;
+          bottom: -21px;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+          background-color: #25d366;
+          color: #fff;
+          border: none;
+          font-size: 1.3rem;
+        }
+      }
     }
   }
-  .product-preview .preview img {
+  .product-preview .preview .previewSubBox img {
     height: inherit;
   }
 }
 /* Media Query */
 @media screen and (max-width: 768px) {
   .product-preview .preview img {
-    height: 15rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .product-preview {
+    height: 100%;
+    overflow: hidden;
+    .preview {
+      .previewSubBox {
+        img {
+          margin-top: 555px;
+          width: 10rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 317px) {
+  .product-preview {
+    .preview {
+      .previewSubBox {
+        img {
+          margin-top: 755px;
+          width: 10rem;
+        }
+      }
+    }
   }
 }
 
